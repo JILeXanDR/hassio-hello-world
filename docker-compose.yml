@@ -1,0 +1,14 @@
+version: '3'
+services:
+  facebox:
+    env_file:
+      - .env
+    image: machinebox/facebox:latest
+    environment:
+      MB_KEY: ${MB_KEY}
+    ports:
+      - ${MB_PORT}:8080
+  gocv:
+    build:
+      context: ./
+      dockerfile: Dockerfile
